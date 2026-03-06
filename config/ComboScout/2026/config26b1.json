@@ -1,0 +1,329 @@
+{
+    "$schema": "../../../public/schema.json",
+    "title": "ComboScout",
+    "page_title": "Rebuilt",
+    "year": 2026,
+    "teamNumber": 4096,
+    "delimiter": "\t",
+    "theme": {
+        "light": {
+            "background": "209 100% 95%",
+            "foreground": "209 5% 0%",
+            "card": "209 50% 90%",
+            "card_foreground": "209 5% 10%",
+            "popover": "209 100% 95%",
+            "popover_foreground": "209 100% 0%",
+            "primary": "209 100% 33%",
+            "primary_foreground": "0 0% 100%",
+            "secondary": "28 99% 50%",
+            "secondary_foreground": "0 0% 0%",
+            "muted": "171 30% 85%",
+            "muted_foreground": "209 5% 35%",
+            "accent": "171 30% 80%",
+            "accent_foreground": "209 5% 10%",
+            "destructive": "0 100% 30%",
+            "destructive_foreground": "209 5% 90%",
+            "border": "209 30% 50%",
+            "input": "209 30% 18%",
+            "ring": "209 100% 33%",
+            "radius": "0.3rem",
+            "chart_1": "12 76% 61%",
+            "chart_2": "173 58% 39%",
+            "chart_3": "197 37% 24%",
+            "chart_4": "43 74% 66%",
+            "chart_5": "27 87% 67%"
+        },
+        "dark": {
+            "background": "209 50% 5%",
+            "foreground": "209 5% 90%",
+            "card": "209 50% 0%",
+            "card_foreground": "209 5% 90%",
+            "popover": "209 50% 5%",
+            "popover_foreground": "209 5% 90%",
+            "primary": "209 100% 33%",
+            "primary_foreground": "0 0% 100%",
+            "secondary": "28 99% 40%",
+            "secondary_foreground": "0 0% 0%",
+            "muted": "171 30% 15%",
+            "muted_foreground": "209 5% 60%",
+            "accent": "171 30% 15%",
+            "accent_foreground": "209 5% 90%",
+            "destructive": "0 100% 30%",
+            "destructive_foreground": "209 5% 90%",
+            "border": "209 30% 18%",
+            "input": "209 30% 18%",
+            "ring": "209 100% 33%",
+            "radius": "0.3rem",
+            "chart_1": "220 70% 50%",
+            "chart_2": "160 60% 45%",
+            "chart_3": "30 80% 55%",
+            "chart_4": "280 65% 60%",
+            "chart_5": "340 75% 55%"
+        }
+    },
+    "sections": [
+        {
+            "name": "Prematch",
+            "fields": [
+                {
+                    "title": "Scouter Name",
+                    "description": "Enter the name of the scouter.",
+                    "type": "text",
+                    "required": true,
+                    "code": "scouter",
+                    "defaultValue": "",
+                    "formResetBehavior": "preserve"
+                },
+                {
+                    "title": "Match Number",
+                    "description": "Enter the match number.",
+                    "type": "number",
+                    "required": true,
+                    "code": "matchNumber",
+                    "defaultValue": 1,
+                    "formResetBehavior": "increment"
+                },
+                {
+                    "title": "Team Number",
+                    "description": "The team number of the robot you're scouting.",
+                    "type": "number",
+                    "required": true,
+                    "code": "teamNumber",
+                    "defaultValue": 0,
+                    "min": 0,
+                    "max": 19999,
+                    "formResetBehavior": "reset"
+                },
+                {
+                    "title": "Drive Team Location",
+                    "description": "The location of the drive team for the robot you are scouting.",
+                    "type": "select",
+                    "required": true,
+                    "code": "driveteam",
+                    "defaultValue": "",
+                    "choices": {
+                        "R1": "Red 1",
+                        "R2": "Red 2",
+                        "R3": "Red 3",
+                        "B1": "Blue 1",
+                        "B2": "Blue 2",
+                        "B3": "Blue 3"
+                    },
+                    "formResetBehavior": "preserve"
+                },
+                {
+                    "title": "Robot Starting Location",
+                    "description": "The starting location of the robot on the field.",
+                    "type": "select",
+                    "required": true,
+                    "code": "startingLocation",
+                    "defaultValue": "",
+                    "choices": {
+                        "1": "No Show",
+                        "2": "Outpost Trench",
+                        "3": "Outpost Bump",
+                        "4": "Depot Trench",
+                        "5": "Depot Bump"
+                    },
+                    "formResetBehavior": "reset"
+                }
+            ]
+        },
+        {
+            "name": "Autonomous",
+            "fields": [
+                {
+                    "code": "auvolley",
+                    "title": "Volley FUEL into HUB",
+                    "description": "Number of FUEL vollied into the HUB during auto.",
+                    "type": "counter",
+                    "defaultValue": 0,
+                    "min": 0,
+                    "required": false,
+                    "formResetBehavior": "reset"
+                },
+                {
+                    "code": "aupass",
+                    "title": "Pass FUEL Forward",
+                    "description": "Number of FUEL passed forward during auto.",
+                    "type": "counter",
+                    "defaultValue": 0,
+                    "min": 0,
+                    "required": false,
+                    "formResetBehavior": "reset"
+                },
+                {
+                    "title": "Tower LEVEL",
+                    "description": "Tower level achieved during auto (0 = not climbed, 1 = climbed).",
+                    "type": "select",
+                    "required": true,
+                    "code": "autower_level",
+                    "defaultValue": "",
+                    "choices": {
+                        "0": "0 - Not Climbed",
+                        "1": "1 - Climbed"
+                    },
+                    "formResetBehavior": "reset"
+                },
+                {
+                    "code": "autower_climb_time",
+                    "title": "Climb Duration",
+                    "description": "Start when the robot begins climbing, stop when it unclimbs or auto ends.",
+                    "type": "timer",
+                    "required": false,
+                    "defaultValue": 0,
+                    "outputType": "average",
+                    "formResetBehavior": "reset"
+                }
+            ]
+        },
+        {
+            "name": "Teleop",
+            "fields": [
+                {
+                    "code": "t1volley",
+                    "title": "1 - Volley FUEL into HUB",
+                    "description": "Period 1: FUEL vollied into the HUB.",
+                    "type": "counter",
+                    "defaultValue": 0,
+                    "min": 0,
+                    "required": false,
+                    "formResetBehavior": "reset"
+                },
+                {
+                    "code": "t1pass",
+                    "title": "1 - Pass FUEL Forward",
+                    "description": "Period 1: FUEL passed forward.",
+                    "type": "counter",
+                    "defaultValue": 0,
+                    "min": 0,
+                    "required": false,
+                    "formResetBehavior": "reset"
+                },
+                {
+                    "code": "t2volley",
+                    "title": "2 - Volley FUEL into HUB",
+                    "description": "Period 2: FUEL vollied into the HUB.",
+                    "type": "counter",
+                    "defaultValue": 0,
+                    "min": 0,
+                    "required": false,
+                    "formResetBehavior": "reset"
+                },
+                {
+                    "code": "t2pass",
+                    "title": "2 - Pass FUEL Forward",
+                    "description": "Period 2: FUEL passed forward.",
+                    "type": "counter",
+                    "defaultValue": 0,
+                    "min": 0,
+                    "required": false,
+                    "formResetBehavior": "reset"
+                },
+                {
+                    "code": "t3volley",
+                    "title": "3 - Volley FUEL into HUB",
+                    "description": "Period 3: FUEL vollied into the HUB.",
+                    "type": "counter",
+                    "defaultValue": 0,
+                    "min": 0,
+                    "required": false,
+                    "formResetBehavior": "reset"
+                },
+                {
+                    "code": "t3pass",
+                    "title": "3 - Pass FUEL Forward",
+                    "description": "Period 3: FUEL passed forward.",
+                    "type": "counter",
+                    "defaultValue": 0,
+                    "min": 0,
+                    "required": false,
+                    "formResetBehavior": "reset"
+                },
+                {
+                    "code": "defense",
+                    "title": "Defense Performed",
+                    "description": "Each instance when defense is performed without attempting to score.",
+                    "type": "counter",
+                    "defaultValue": 0,
+                    "min": 0,
+                    "required": false,
+                    "formResetBehavior": "reset"
+                }
+            ]
+        },
+        {
+            "name": "Endgame",
+            "fields": [
+                {
+                    "code": "etower_climb_time",
+                    "title": "Time at TOWER",
+                    "description": "Start when the robot begins climbing the tower, stop when it finishes or lets go.",
+                    "type": "timer",
+                    "required": false,
+                    "defaultValue": 0,
+                    "outputType": "average",
+                    "formResetBehavior": "reset"
+                },
+                {
+                    "title": "TOWER LEVEL",
+                    "description": "Final tower level achieved (0 = none, 1 = low, 2 = mid, 3 = high).",
+                    "type": "select",
+                    "required": true,
+                    "code": "etower_level",
+                    "defaultValue": "",
+                    "choices": {
+                        "0": "0 - None",
+                        "1": "1 - Low",
+                        "2": "2 - Mid",
+                        "3": "3 - High"
+                    },
+                    "formResetBehavior": "reset"
+                },
+                {
+                    "code": "minf",
+                    "title": "Minor Fouls",
+                    "description": "Minor fouls for the whole match.",
+                    "type": "counter",
+                    "defaultValue": 0,
+                    "min": 0,
+                    "required": false,
+                    "formResetBehavior": "reset"
+                },
+                {
+                    "code": "majf",
+                    "title": "Major Fouls",
+                    "description": "Major fouls for the whole match.",
+                    "type": "counter",
+                    "defaultValue": 0,
+                    "min": 0,
+                    "required": false,
+                    "formResetBehavior": "reset"
+                },
+                {
+                    "title": "Overall Performance",
+                    "type": "select",
+                    "required": true,
+                    "code": "perf",
+                    "defaultValue": "",
+                    "choices": {
+                        "0": "0 - Poor",
+                        "1": "1 - Average",
+                        "2": "2 - Good"
+                    },
+                    "formResetBehavior": "reset"
+                },
+                {
+                    "code": "co",
+                    "title": "Additional Observations",
+                    "type": "text",
+                    "min": 0,
+                    "max": 50,
+                    "defaultValue": "",
+                    "required": true,
+                    "formResetBehavior": "reset"
+                }
+            ]
+        }
+    ]
+}

@@ -1,6 +1,6 @@
 import { produce } from 'immer';
 import { cloneDeep } from 'lodash';
-import configJson from '../../config/2026/config.json';
+import configJson from '../../config/ComboScout/2026/config26b1.json';
 import {
   ActionTrackerInputData,
   Config,
